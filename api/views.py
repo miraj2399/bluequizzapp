@@ -1,5 +1,4 @@
 
-import re
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,JsonResponse
 from rest_framework.authtoken.models import Token
@@ -14,7 +13,6 @@ from rest_framework.permissions import IsAuthenticated
 
 from rest_framework.response import Response
 from .serializers import QuestionSerializer, QuizSerializer
-from rest_framework import serializers
 from authapp.serializer import loginSerializer, registerSerializer
 from django.contrib.auth import authenticate,login, logout
 
