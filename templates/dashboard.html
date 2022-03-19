@@ -1,0 +1,11 @@
+{% if request.user.is_authenticated %}
+<h1> Welcome, {{request.user.username}}</h1>
+{% endif %}
+<h1>
+    Your Quizes:
+</h1>
+{% for quiz in quizes %}
+<p> <a href = "{% url 'takequiz' quiz.id%}">{{quiz.title}}</a></p>
+{% endfor %}
+<p><a href = "{% url 'createquiz' %}">Add Quiz +</a></p>
+<p><a href = "./auth/logout">Logout</a></p>

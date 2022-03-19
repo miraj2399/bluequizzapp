@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 name = 'title_quiz'>{{title}}</h1>
+    <p><div name = 'number'>{{number}}</div> questions</p>
+    <p style="color:red">Leave question field blank if you want to reduce number of questions</p>
+    <br><br>
+<form method = 'POST' action = 'savequiz'>
+    {% csrf_token %}
+    <p>Title:</p>
+    <textarea rows = '2' cols = '100' name = 'title'></textarea>
+    {% for i in range%}
+    <p>Question {{i}}:</p>
+    <textarea name="question_{{i}}" rows = "2" cols = "100"></textarea>
+    <p>option 1:</p>
+    <textarea name = "question_{{i}}_opt1" rows = "1" cols = "80"></textarea>
+    <p>option 2:</p>
+    <textarea name = "question_{{i}}_opt2" rows = "1" cols = "80"></textarea>
+    <p>option 3:</p>
+    <textarea name = "question_{{i}}_opt3" rows = "1" cols = "80"></textarea>
+    <p>option 4:</p>
+    <textarea name = "question_{{i}}_opt4" rows = "1" cols = "80"></textarea>
+    <p>correct option:</p>
+    <input type = 'number' max = '4' min = '1'name = "question_{{i}}_correct" >
+    
+    {% endfor %}
+    <br>
+    <input type = 'submit' value = "save quiz" >
+</form>
+</body>
+</html>

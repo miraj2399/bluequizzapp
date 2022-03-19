@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method = "POST" action = "{% url 'takequiz' quiz.id %}">
+        {% csrf_token %}
+        
+        <h1> {{quiz.title}}</h1>
+        {% for q in quiz.questions.all %}
+        
+        <p> {{q.question_text}}</p>
+        <div name = "choice" >
+                            <input type = "radio" name = "{{q.id}}" value="1" >{{q.option_1}}</input><br>
+                            <input type = "radio" name = {{q.id}} value="2">{{q.option_2}}</input><br>
+                            <input type ="radio" name = {{q.id}} value="3">{{q.option_3}}</input><br>
+                            <input type = "radio" name = {{q.id}} value = "4">{{q.option_4}}</input><br>
+        </div>
+        {% endfor %}
+        <input  type = "submit" value="Submit">
+        </form>
+</body>
+</html>
