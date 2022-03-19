@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web gunicorn  Quiz.wsgi
+web gunicorn  Quiz.wsgi:application
