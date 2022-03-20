@@ -7,6 +7,13 @@ from django.contrib.auth.models import User
 
 
 # Create your views here.
+
+def home(request):
+    try:
+        return redirect(dashboard)
+    except:
+        return redirect('/auth')
+
 def createquiz(request):
     if request.method == 'POST':
         number = request.POST.get('number_of_question',0)
