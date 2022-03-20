@@ -1,29 +1,5 @@
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Login page</h1>
-    <form method = 'POST' action="login">
-        {% csrf_token %}
-        <p>User name:</p>
-        <input type = 'text' name="username">
-        <p>Password:</p>
-        <input type="password" name="password">
-        <br><br>
-        <input type = 'submit' value = 'submit' >
-    </form> 
-    <br><br>
-    <a href = '{% url "index"%}'>Back to main page</a>
-</body>
-</html>
-
 
 
 
@@ -45,7 +21,7 @@
             <p>Please Log in</p>
         </div>
 <div class="container bg-info">
-    <form>
+    <form method = 'POST' action = 'login'>
         {% csrf_token %}
         <div class="form-group">
           <p>Username</p>
