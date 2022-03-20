@@ -1,18 +1,20 @@
+import re
 from django.shortcuts import redirect, render
 from django.http import HttpResponse,JsonResponse
 from django.contrib.auth.models import User
 from .models import Question,Quiz
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
 
 # Create your views here.
 
 def home(request):
-    try:
+    if request.user.is_authenticated:
         return redirect(dashboard)
-    except:
-        return redirect('/auth')
+    else:
+        return redirect('auth/')
 
 def createquiz(request):
     if request.method == 'POST':
