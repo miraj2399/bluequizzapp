@@ -69,7 +69,7 @@ def takequiz(request,quiz_id):
                 total+=1
             else:
                 total+=1
-        return JsonResponse({'total':total,'correct':correct})
+        return render(request,'result.html',{'total':total,'correct':correct})
 
     return render (request,'takequiz.html',{'quiz':quiz})
 
