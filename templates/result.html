@@ -22,9 +22,12 @@
         <p>{{request.user.username}}, Here is your result</p>
     </div>
 
-    <div class="d-flex flex-column justify-content-center text-center bg-success"><div class="p-5 border ">You answered {{correct}} Questions Correctly!!!</div></div>
-    <div class="d-flex flex-column justify-content-center text-center bg-danger"><div class="p-5 border ">{{total-correct}} incorrect answer</div></div>
-
+    <div class="d-flex flex-column justify-content-center text-center bg-success"><div class="p-5 border ">You answered {{correct}} Questions Correctly</div></div>
+    {% if wrong == 0%}
+    <div class="d-flex flex-column justify-content-center text-center bg-danger"><div class="p-5 border ">No incorrect answer !!!!</div></div>
+    {% elif %}
+    <div class="d-flex flex-column justify-content-center text-center bg-danger"><div class="p-5 border ">{{wrong} incorrect answer</div></div>
+    {% endif %}
 
 </div>
 

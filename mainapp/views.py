@@ -69,7 +69,8 @@ def takequiz(request,quiz_id):
                 total+=1
             else:
                 total+=1
-        return render(request,'result.html',{'total':total,'correct':correct})
+        wrong = total - correct
+        return render(request,'result.html',{'wrong':wrong,'correct':correct})
 
     return render (request,'takequiz.html',{'quiz':quiz})
 
